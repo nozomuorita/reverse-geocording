@@ -4,7 +4,7 @@
 
 import pandas as pd
 
-data = pd.read_csv("../../data/address/address-data.csv", index_col=0)
+data = pd.read_csv("../data/address/address-data.csv", index_col=0)
 prefecture = [] # prefecture name
 max_lat, min_lat = [], []  # latitude
 max_lon, min_lon = [], []  # longitude
@@ -29,4 +29,4 @@ df['min_lat'] = min_lat
 df['max_lon'] = max_lon
 df['min_lon'] = min_lon
 
-df.to_csv('../../data/address/address-data2.csv')
+df.to_csv('../data/address/address-data2.csv')

@@ -31,7 +31,7 @@ def setting():
 
     ・Create directory for storing address data
     """
-    data_dir_path = "../../data/address/"
+    data_dir_path = "../data/address/"
     
     # make directory for storing
     if os.path.exists(data_dir_path):
@@ -50,7 +50,7 @@ def download_data(prefecture_code: str):
     
     #prefecture_code = str(prefecture_code).zfill(2)
     url = f"https://nlftp.mlit.go.jp/isj/dls/data/16.0b/{prefecture_code}000-16.0b.zip"
-    save_path = f"../../data/addres/{prefecture_code}.zip"
+    save_path = f"../data/address/{prefecture_code}.zip"
     
     try:
         with urllib.request.urlopen(url) as download_file:
@@ -61,10 +61,10 @@ def download_data(prefecture_code: str):
         print(e)
 
     # Unpack the zip file
-    shutil.unpack_archive(f'../../data/address/{prefecture_code}.zip', '../../data/address/')
+    shutil.unpack_archive(f'../data/address/{prefecture_code}.zip', '../data/address/')
     # delete zip file
-    os.remove(f'../../data/address/{prefecture_code}.zip')
-    data = pd.read_csv(f'../../data/address/{prefecture_code}000-16.0b/{prefecture_code}_2022.csv', encoding="cp932")
+    os.remove(f'../data/address/{prefecture_code}.zip')
+    data = pd.read_csv(f'../data/address/{prefecture_code}000-16.0b/{prefecture_code}_2022.csv', encoding="cp932")
     return data   
  
 def processing(df_base: pd.DataFrame, df_new: pd.DataFrame, prefecture_code: str):
@@ -82,7 +82,7 @@ def processing(df_base: pd.DataFrame, df_new: pd.DataFrame, prefecture_code: str
     
     df = pd.concat([df_base, df_new])
     # delete directory after concat
-    shutil.rmtree(f'../../data/address/{prefecture_code}000-16.0b')
+    shutil.rmtree(f'../data/address/{prefecture_code}000-16.0b')
     return df
 
 def save_data_to_csv(df: pd.DataFrame):
@@ -92,7 +92,7 @@ def save_data_to_csv(df: pd.DataFrame):
     Args:
         df (pd.DataFrame): address data
     """
-    df.to_csv('../../data/address/addres-data.csv')
+    df.to_csv('../data/address/addres-data.csv')
     
 if __name__=="__main__":
     main()
