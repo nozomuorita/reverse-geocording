@@ -63,7 +63,7 @@
 
 <h1>References</h1>
 <ul>
-    <li><a href='https://nlftp.mlit.go.jp/', target="_blank">国土交通省国土数値情報ダウンロードサイト(データ取得元)</a></li>
+    <li><a href='https://nlftp.mlit.go.jp/' target="_blank">国土交通省国土数値情報ダウンロードサイト(データ取得元)</a></li>
     <!-- <li><a href='#'>XML形式からのデータ取得参考サイト</a></li>
     <li><a href='#'>任意の位置の海岸線からの距離計測</a></li>
     <li><a href='#'>任意の位置の都道府県・市区町村特定</a></li> -->
