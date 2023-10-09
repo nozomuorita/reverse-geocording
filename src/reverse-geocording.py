@@ -17,9 +17,8 @@ def main():
             # break
         latitude = origin.iloc[i, 2]
         longitude = origin.iloc[i, 3]
-        c = candidate(latitude, longitude)
         
-        if len(c)==0: p=c[0]
+        if len(c:=candidate(latitude, longitude))==1: p=c[0]
         else: p=specific(c, latitude, longitude)
         
         if len(address_lst)+interval<=len(origin): address_lst+=[p]*interval
@@ -70,8 +69,7 @@ def specific(candidate: list, lat:float, lon:float):
         for j in range(len(tmp)):
             lat_j = tmp.iloc[j, 6]
             lon_j = tmp.iloc[j, 7]
-            d = ((lat-lat_j)**2 + (lon-lon_j)**2)**0.5
-            if d<dist:
+            if (d:=((lat-lat_j)**2 + (lon-lon_j)**2)**0.5)<dist:
                 dist = d
                 # ans = tmp.iloc[j, 1] + tmp.iloc[j, 3] + tmp.iloc[j, 5]
                 ans = tmp.iloc[j, 1]
